@@ -21,7 +21,11 @@ BugReports: https://github.com/ratral/epanettools4cv/issues
 Suggests: 
     knitr,
     rmarkdown
-VignetteBuilder: knitr
-Imports: 
-Depends: 
+VignetteBuilder:
+    knitr
+Imports:
+    dplyr,
+    tidyr,
+    tibble
+Depends:
     R (>= 4.2.0)
