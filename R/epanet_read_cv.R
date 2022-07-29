@@ -11,9 +11,13 @@
 #' @return The table operation_data
 #' @export
 #'
+<<<<<<< HEAD
 #' @import dplyr
 #' @import tidyr
 #' @import tibble
+=======
+#' @import tidyverse
+>>>>>>> c3374361c1c946dead164d5e4f9d841bcdd897bc
 #'
 #'
 epanet_read_cv <- function(hmodel, hreport, cv_name) {
@@ -27,9 +31,15 @@ epanet_read_cv <- function(hmodel, hreport, cv_name) {
 
   # Values for the Nodes of the Valve
   nodes <- hreport$nodeResults |>
+<<<<<<< HEAD
     dplyr::filter(ID %in% c(cvalve$Node1[1], cvalve$Node2[1])) |>
     dplyr::select(ID, Pressure, Timestamp) |>
     tidyr::pivot_wider(names_from = ID, values_from = Pressure)
+=======
+    filter(ID %in% c(cvalve$Node1[1], cvalve$Node2[1])) |>
+    select(ID, Pressure, Timestamp) |>
+    pivot_wider(names_from = ID, values_from = Pressure)
+>>>>>>> c3374361c1c946dead164d5e4f9d841bcdd897bc
 
   names(nodes) <- c("Timestamp", "p1", "p2")
 
