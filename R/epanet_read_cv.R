@@ -11,7 +11,13 @@
 #' @return The table operation_data
 #' @export
 #'
+#' @import tidyverse
+#'
+#'
 epanet_read_cv <- function(hmodel, hreport, cv_name) {
+
+  ID <- Node1 <- Node2 <- Diameter <- Type <- MinorLoss <- NULL
+  Pressure <- Timestamp <- Headloss <- Flow <- Velocity <- p1 <- p2 <- NULL
 
   # Read  from the hmodel the parameter of the control valve to evaluate.
   cvalve <- hmodel$Valves |> filter(ID == cv_name) |>
@@ -21,7 +27,7 @@ epanet_read_cv <- function(hmodel, hreport, cv_name) {
   nodes <- hreport$nodeResults |>
     filter(ID %in% c(cvalve$Node1[1], cvalve$Node2[1])) |>
     select(ID, Pressure, Timestamp) |>
-      pivot_wider(names_from = ID, values_from = Pressure)
+    pivot_wider(names_from = ID, values_from = Pressure)
 
   names(nodes) <- c("Timestamp", "p1", "p2")
 

@@ -23,5 +23,6 @@ Suggests:
     rmarkdown
 VignetteBuilder: knitr
 Imports: 
-Depends: 
+    tidyverse
+Depends:
     R (>= 4.2.0)
