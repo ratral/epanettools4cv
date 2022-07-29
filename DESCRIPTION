@@ -1,0 +1,27 @@
+Package: epanettools4cv
+Title: "Reading the simulating data of control valves from Epanet files into R."
+Version: 0.1.0
+Authors@R: 
+    person(
+      "Raúl", "Trujillo Álvarez", 
+      email = "dr.ing.trujillo@gmail.com", 
+      role = c("aut", "cre"),
+      comment = c(ORCID = "0000-0001-9102-9295")
+    )
+Description: 
+    `epanettools4cv` is an R package for reading the data and simulating 
+      control valves in Epanet’s .inp and .rpt formats into R.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+URL: https://github.com/ratral/epanettools4cv
+BugReports: https://github.com/ratral/epanettools4cv/issues
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Imports: 
+Depends: 
+    R (>= 4.2.0)
