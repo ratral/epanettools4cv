@@ -17,10 +17,6 @@ knitr::opts_chunk$set(
 
 `epanettools4cv` is an R package for reading the data and simulating control valves in Epanet’s .inp and .rpt formats into R.
 
-<!-- badges: start -->
-
-<!-- badges: end -->
-
 The goal of epanettools4cv is to ...
 
 ## Installation
@@ -31,27 +27,47 @@ You can install the development version of epanettools4cv like so:
 # FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
 ```
 
-## Example
+## Package units
 
-This is a basic example which shows you how to solve a common problem:
+All data are stored in the following SI (International System) units:
 
-```{r example}
-library(epanettools4cv)
-## basic example code
-```
+-   Length in meter $(m)$
+-   Diameter in millimeter $(mm)$
+-   Water pressure in meter $(m$ this assumes a fluid density of $1.000 (kg/m^3)$)
+-   Elevation in meter $(m)$
+-   Time in seconds $s$
+-   Concentration in $kg/m^3$
+-   Flow in $L/s$
+-   Demand in $L/s$
+-   Velocity in $m/s$
+-   Acceleration $g$ ($g = 9.81 m/s^2$)
+-   Energy in $kW-hour$
+-   Power in $kW$
+-   Volume in $m^3$
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+## EPANET unit conventions
 
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+| **Parameter**               | **US customary units**                                                                                                                      | **SI-based units**                                                                                           |
+|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| Concentration               | $mass/L$ where $mass$ can be defined as $mg$ or $ug$                                                                                        | $mass /L$ where $mass$ can be defined as $mg$ or $ug$                                                        |
+| Demand                      | Same as *flow*                                                                                                                              | Same as *flow*                                                                                               |
+| Diameter (Pipes)            | $in$                                                                                                                                        | $mm$                                                                                                         |
+| Diameter (Tanks)            | $ft$                                                                                                                                        | $m$                                                                                                          |
+| Efficiency (Pumps)          | percent $\%$                                                                                                                                | percent $\%$                                                                                                 |
+| Elevation                   | $ft$                                                                                                                                        | $m$                                                                                                          |
+| Emitter coefficient         | $flow / sqrt(psi)$                                                                                                                          | $flow / sqrt(m)$                                                                                             |
+| Energy                      | $kW-hours$                                                                                                                                  | $kW-hours$                                                                                                   |
+| Flow                        | \- CFS: $ft^3/s$ <br/>- GPM: $gal/min$ <br/> - MGD: $million gal/day$ <br/> - IMGD: $million imperial gal/day$ <br/> - AFD: $acre-feet/day$ | \- LPS: $L/s$ <br/> - LPM: $L/min$ <br/> - MLD: $million L/day$ <br/> - CMH: $m^3/hr$ <br/> - CMD: $m^3/day$ |
+| Friction factor             | unitless                                                                                                                                    | unitless                                                                                                     |
+| Hydraulic head              | $ft$                                                                                                                                        | $m$                                                                                                          |
+| Length                      | $ft$                                                                                                                                        | $m$                                                                                                          |
+| Minor loss coefficient      | unitless                                                                                                                                    | unitless                                                                                                     |
+| Power                       | $horsepower$                                                                                                                                | $kW$                                                                                                         |
+| Pressure                    | $psi$                                                                                                                                       | $m$                                                                                                          |
+| Reaction coefficient (Bulk) | 1/day (1st-order)                                                                                                                           | 1/day (1st-order)                                                                                            |
+| Reaction coefficient (Wall) | \- mass $/ft/day$ (0-order) <br/> - $ft/day$ (1st-order))                                                                                   | \- mass $/mt/day$ (0-order) <br/> - $m/day$ (1st-order))                                                     |
+| Roughness coefficient       | \- $10^{-3}$ ft (Darcy-Weisbach) <br/> - unitless (otherwise)                                                                               | \- millimeter (Darcy-Weisbach) <br/> - unitless (otherwise)                                                  |
+| Source mass injection rate  | $mass/min$                                                                                                                                  | $mass/min$                                                                                                   |
+| Velocity                    | $ft/s$                                                                                                                                      | $m/s$                                                                                                        |
+| Volume                      | $ft^3$                                                                                                                                      | $m^3$                                                                                                        |
+| Water age                   | hours                                                                                                                                       | hours                                                                                                        |

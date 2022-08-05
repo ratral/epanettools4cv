@@ -1,5 +1,8 @@
 [TITLE]
-BASIC DMA MODEL v00.03
+title: 0001 BASIC DMA MODEL
+description:  Water supply to a DMA without losses and any control. 
+modell_name: basicDMA_001
+units: SI-based units
 
 [JUNCTIONS]
 ;ID              	Elev        	Demand      	Pattern
